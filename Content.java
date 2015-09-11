@@ -2,16 +2,19 @@ package poc.rest.ws.beans;
 
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Embeddable
+@Entity
+@Table(name="CONTENTS")
 public class Content implements Serializable{
 	
 	/**
-	 * Content class ID 
-	 * 
+	 * Content class ID  
 	 */	
 	private static final long serialVersionUID = 123L;
+	@Id
 	private int chapterNo;
 	private String title;
 	private String description;
@@ -62,7 +65,7 @@ public class Content implements Serializable{
 	}
 	
 	public String toString(){
-		return String.format("Content: [%d, %s, %s, %d to %d]",
+		return String.format("Content: [%d, %s, %s, %d to %d]\n",
 			getChapterNo(),getTitle(),getDescription(),getStartPage(),getEndPage());	
 	}
 	
