@@ -1,8 +1,6 @@
 package poc.rest.ws.beans;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,7 +8,6 @@ import javax.persistence.Table;
 @Table(name="ADDRESSES")
 public class Address {
 	@Id	
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long addressId;
 	private String addLine;
 	private String city;
