@@ -1,26 +1,28 @@
 package poc.rest.ws.beans;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="PUBLISHERS")
 public class Publisher {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id	
 	private Long publisherId;
-	private String name;
+	private String name;	
+	@OneToOne	
 	private Address address;
+	@OneToOne
+	private Contact contact;
 	
 	public Publisher(){}
 	
-	public Publisher(Long publisherId,String name,Address address){
+	public Publisher(Long publisherId,String name,Address address,Contact contact){
 		this.publisherId = publisherId;
 		this.name = name;
 		this.address = address;		
+		this.contact = contact;
 	}
 
 	public Long getPublisherId() {
@@ -48,6 +50,15 @@ public class Publisher {
 	}
 	
 	
-	
-	
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public String toString(){
+		return String.format("Publisher: [ %s ]",getName());
+	}	
 }
